@@ -19,7 +19,6 @@ namespace CouchbaseRestfulJobPattern.Services
         private readonly MessageBusService _messageBus;
         private readonly ILogger<JobService> _logger;
 
-
         public JobService(JobRepository jobRepository, StarRepository starRepository, MessageBusService messageBus,
             ILogger<JobService> logger)
         {
@@ -58,10 +57,8 @@ namespace CouchbaseRestfulJobPattern.Services
             }
         }
 
-        /// <returns>True if the job was processed, or false if it was locked or already complete.</returns>
-        public async Task<bool> ExecuteJobAsync(long id, CancellationToken token)
+        public async Task ExecuteJobAsync(long id, CancellationToken token)
         {
-
             try
             {
                 using (var mutex = await _jobRepository.LockJobAsync(id, TimeSpan.FromMinutes(1)))
@@ -72,7 +69,7 @@ namespace CouchbaseRestfulJobPattern.Services
                     var job = await _jobRepository.GetJobAsync(id);
                     if (job.Status == JobStatus.Complete)
                     {
-                        return false;
+                        return;
                     }
 
                     // Update the status to Running
@@ -92,12 +89,10 @@ namespace CouchbaseRestfulJobPattern.Services
                     job.Status = JobStatus.Complete;
                     await _jobRepository.UpdateJobAsync(job, TimeSpan.FromDays(1));
                 }
-
-                return true;
             }
             catch (CouchbaseLockUnavailableException)
             {
-                return false;
+                // Ignore and skip processing
             }
         }
     }

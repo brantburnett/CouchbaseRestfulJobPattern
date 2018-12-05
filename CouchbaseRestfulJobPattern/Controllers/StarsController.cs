@@ -50,7 +50,7 @@ namespace CouchbaseRestfulJobPattern.Controllers
 
         // POST star
         [HttpPost]
-        public async Task<ActionResult<StarDto>> Post([FromBody] StarDto star)
+        public async Task<IActionResult> Post([FromBody] StarDto star)
         {
             if (!ModelState.IsValid)
             {
