@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  couchbase:
+    image: btburnett3/couchbasefakeit:enterprise-5.5.0
+    expose:
+      - "8091-8094"
+      - "11207"
+      - "11210-11211"
+    ports:
+      - "8091:8091"
+    environment:
+      CB_SERVICES: "kv,n1ql,index"
+    volumes:
+      - "./couchbase:/startup"
+      - "nodestatus:/nodestatus"
+      - "couchbasedata:/opt/couchbase/var"
+  couchbaserestfuljobpattern:
+    image: ${DOCKER_REGISTRY-}couchbaserestfuljobpattern
+    build:
+      context: .
+      dockerfile: CouchbaseRestfulJobPattern/Dockerfile
+    volumes:
+      - "nodestatus:/nodestatus"
+    environment:
+      WaitFile: /nodestatus/initialized # This file will exist on the shared volume once CouchbaseFakeIt finishes initializing
+    depends_on:
+      - couchbase
+volumes:
+  nodestatus:
+  couchbasedata:

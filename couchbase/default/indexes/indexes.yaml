@@ -1,0 +1,12 @@
+name: default_primary
+is_primary: true
+---
+name: stars_by_name
+index_key:
+- name
+condition: type = 'star'
+---
+name: jobs_by_id
+index_key:
+- id
+condition: type = 'job'

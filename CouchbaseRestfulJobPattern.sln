@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CouchbaseRestfulJobPattern", "CouchbaseRestfulJobPattern\CouchbaseRestfulJobPattern.csproj", "{96B603A2-8F24-4A22-BAA8-6C9F92C3DB16}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{92950C18-2E16-47E6-8B9D-E14EE0E1229B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "couchbase", "couchbase", "{6ADDDAA7-616E-4429-8621-53CAA13BC05A}"
+	ProjectSection(SolutionItems) = preProject
+		couchbase\buckets.json = couchbase\buckets.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "default", "default", "{9FCC859D-D7BE-485A-BFAF-F597EA8DF9D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "indexes", "indexes", "{BFB3DE04-1C5A-492A-834B-E06EA559ABAA}"
+	ProjectSection(SolutionItems) = preProject
+		couchbase\default\indexes\indexes.yaml = couchbase\default\indexes\indexes.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96B603A2-8F24-4A22-BAA8-6C9F92C3DB16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96B603A2-8F24-4A22-BAA8-6C9F92C3DB16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96B603A2-8F24-4A22-BAA8-6C9F92C3DB16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96B603A2-8F24-4A22-BAA8-6C9F92C3DB16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92950C18-2E16-47E6-8B9D-E14EE0E1229B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92950C18-2E16-47E6-8B9D-E14EE0E1229B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92950C18-2E16-47E6-8B9D-E14EE0E1229B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92950C18-2E16-47E6-8B9D-E14EE0E1229B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9FCC859D-D7BE-485A-BFAF-F597EA8DF9D5} = {6ADDDAA7-616E-4429-8621-53CAA13BC05A}
+		{BFB3DE04-1C5A-492A-834B-E06EA559ABAA} = {9FCC859D-D7BE-485A-BFAF-F597EA8DF9D5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {85691892-F016-4121-8666-C93A9DC263CA}
+	EndGlobalSection
+EndGlobal
