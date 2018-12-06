@@ -2,6 +2,8 @@
 
 This repository provides an example of a C# pattern for handling long running jobs in a REST microservice or other cloud environment, using Couchbase as the backing data store. However, this pattern could be used for any distributed data storage mechanism capable of atomic writes for lock management.
 
+More information about this example is available on my blog: https://btburnett.com/couchbase/microservices/rest/2018/12/06/a-restuful-job-pattern-for-a-csharp-microservice.html
+
 ## Prerequisites
 
 1. [Visual Studio](https://visualstudio.microsoft.com/) (sorry, no VSCode at the moment)
